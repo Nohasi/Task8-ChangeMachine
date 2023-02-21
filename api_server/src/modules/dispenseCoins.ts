@@ -14,7 +14,6 @@ export const dispenseCoins = (machineCoins: coins, price: number, amount: number
         cent1: 0
     }
 
-
     while(changeDue > 0){
         changeDue = selectCoin(changeDue, machineCoins, coinsDispensed);
     }
