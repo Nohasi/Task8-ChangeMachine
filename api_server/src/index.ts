@@ -2,6 +2,9 @@ import { invalidRequest } from "./modules/invalidRequest";
 
 import express = require('express');
 import coins from "./types/coins";
+import { convertToCents } from "./modules/convertToCents";
+import { dispenseCoins } from "./modules/dispenseCoins";
+import valuesInCents from "./types/valuesInCents";
 
 // Machine's coins stored in this object
 let machineCoins: coins = {
@@ -17,7 +20,6 @@ let machineCoins: coins = {
 const app = express();
 
 app.use(express.json());
-// 3 params: dice, throws, players
 app.get('/change', (req: express.Request, res: express.Response) => {
     let errorMessage: string | null = invalidRequest(req);
     // not null: an error exists, hence is returned
@@ -30,10 +32,16 @@ app.get('/change', (req: express.Request, res: express.Response) => {
         return;
     }
 
+    let centsValue: valuesInCents = convertToCents(Number(req.query["price"]), Number(req.query["amount"]));
+    let price: number = centsValue.priceInCents;
+    let amount: number = centsValue.amountInCents;
+
+    const coinsDispensed = dispenseCoins(machineCoins, price, amount);
     res.status(200);
     res.send({
         status: 200,
-        // TODO: Results
+        coins_dispensed: coinsDispensed,
+        machine_coins: machineCoins
     });
 });
 
