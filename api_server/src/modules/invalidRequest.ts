@@ -1,5 +1,8 @@
 import { Request } from "express"
-export const invalidRequest = (req: Request): string | null => {
+import coins from "../types/coins";
+
+export const invalidRequest = (req: Request, machineCoins: coins, availableFunds: number): string | null => {
     
+
     return null;
 }

@@ -6,6 +6,7 @@ import { convertToCents } from "./modules/convertToCents";
 import { dispenseCoins } from "./modules/dispenseCoins";
 import valuesInCents from "./types/valuesInCents";
 import dispensingResults from "./types/dispensingResults";
+import { calculateAvailableFunds } from "./modules/calculateAvailableFunds";
 
 // Machine's coins stored in this object
 let machineCoins: coins = {
@@ -22,7 +23,9 @@ const app = express();
 
 app.use(express.json());
 app.get('/change', (req: express.Request, res: express.Response) => {
-    let errorMessage: string | null = invalidRequest(req);
+    let availableFunds = calculateAvailableFunds(machineCoins);
+    let errorMessage: string | null = invalidRequest(req, machineCoins, availableFunds);
+    
     // not null: an error exists, hence is returned
     if(errorMessage != null){
         res.status(406);
