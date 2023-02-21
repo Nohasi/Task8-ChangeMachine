@@ -7,6 +7,7 @@ import { dispenseCoins } from "./modules/dispenseCoins";
 import valuesInCents from "./types/valuesInCents";
 import dispensingResults from "./types/dispensingResults";
 import { calculateAvailableFunds } from "./modules/calculateAvailableFunds";
+import { calculateTotalChange } from "./modules/calculateTotalChange";
 
 // Machine's coins stored in this object
 let machineCoins: coins = {
@@ -40,7 +41,7 @@ app.get('/change', (req: express.Request, res: express.Response) => {
     let price: number = centsValue.priceInCents;
     let amount: number = centsValue.amountInCents;
     // comparing cent values to avoid javascript floating point shenanigans
-    const changeReturned = (amount - price)/100;
+    const changeReturned = calculateTotalChange(price, amount);
     const coinsDispensed = dispenseCoins(machineCoins, price, amount);
     res.status(200);
     res.send({

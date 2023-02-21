@@ -1,5 +1,6 @@
 import { Request } from "express"
 import coins from "../types/coins";
+import { calculateTotalChange } from "./calculateTotalChange";
 import { convertToCents } from "./convertToCents";
 
 export const invalidRequest = (req: Request, machineCoins: coins, availableFunds: number): string | null => {
@@ -45,7 +46,7 @@ export const invalidRequest = (req: Request, machineCoins: coins, availableFunds
     const centsValue = convertToCents(price, amount);
     const priceInCents = centsValue.priceInCents;
     const amountInCents = centsValue.amountInCents;
-    const changeNeeded = (amountInCents - priceInCents)/100;
+    const changeNeeded = calculateTotalChange(priceInCents, amountInCents);
     // Checking if enough funds are available
     if(changeNeeded > availableFunds){
         return "Not enough funds are available in machine to return proper change";
