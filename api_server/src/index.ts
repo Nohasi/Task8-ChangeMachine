@@ -25,7 +25,7 @@ app.use(express.json());
 app.get('/change', (req: express.Request, res: express.Response) => {
     let availableFunds = calculateAvailableFunds(machineCoins);
     let errorMessage: string | null = invalidRequest(req, machineCoins, availableFunds);
-    
+
     // not null: an error exists, hence is returned
     if(errorMessage != null){
         res.status(406);
@@ -39,13 +39,14 @@ app.get('/change', (req: express.Request, res: express.Response) => {
     let centsValue: valuesInCents = convertToCents(Number(req.query["price"]), Number(req.query["amount"]));
     let price: number = centsValue.priceInCents;
     let amount: number = centsValue.amountInCents;
-
+    // comparing cent values to avoid javascript floating point shenanigans
+    const changeReturned = (amount - price)/100;
     const coinsDispensed = dispenseCoins(machineCoins, price, amount);
     res.status(200);
     res.send({
         status: 200,
-        // comparing cent values to avoid javascript floating point shenanigans
-        change_returned: (amount - price)/100,
+        change_returned: changeReturned,
+        funds_remaining: availableFunds - changeReturned,
         coins_dispensed: coinsDispensed,
         machine_coins: machineCoins
     });
