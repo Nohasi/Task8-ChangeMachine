@@ -1,6 +1,18 @@
 import { invalidRequest } from "./modules/invalidRequest";
 
 import express = require('express');
+import coins from "./types/coins";
+
+// Machine's coins stored in this object
+let machineCoins: coins = {
+    dollar1: 200,
+    cent50: 200,
+    cent20: 200,
+    cent10: 200,
+    cent5: 200,
+    cent2: 200,
+    cent1: 200
+}
 
 const app = express();
 
