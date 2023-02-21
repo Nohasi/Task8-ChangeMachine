@@ -51,8 +51,12 @@ export const selectCoin = (changeDue: number, machineCoins: coins, coinsDispense
     }
 
     // 1 cent
-    changeDue -= 1;
-    machineCoins.cent1 -= 1;
-    coinsDispensed.cent1 += 1;
-    return changeDue;
+    if(changeDue >= 1 && machineCoins.cent1 > 0){
+        changeDue -= 1;
+        machineCoins.cent1 -= 1;
+        coinsDispensed.cent1 += 1;
+        return changeDue;
+    }
+
+    return 0;
 }
