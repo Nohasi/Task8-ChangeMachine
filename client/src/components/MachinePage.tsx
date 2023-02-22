@@ -1,15 +1,17 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
 import React from 'react';
 import { useState } from 'react';
+import { ChangeForm } from './ChangeForm';
+import { Header } from './Header';
 
 export const MachinePage = () => {
     return(
         <div className="App">
-            {/* TODO: HEADER */}
+            <Header/>
             <div className="container mrgnbtm">
                 <div className="row">
                     <div className="col-md-8">
-                        {/* TODO: FORM DISPLAY */}
+                        <ChangeForm/>
                     </div>
                     <div className="col-md-4">
                         {/* TODO: RESULTS PANEL */}
