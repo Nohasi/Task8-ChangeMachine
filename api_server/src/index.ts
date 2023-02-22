@@ -47,7 +47,7 @@ app.get('/change', (req: express.Request, res: express.Response) => {
     res.send({
         status: 200,
         change_returned: changeReturned,
-        funds_remaining: availableFunds - changeReturned,
+        funds_remaining: (availableFunds/100) - changeReturned,
         coins_dispensed: coinsDispensed,
         machine_coins: machineCoins
     });
