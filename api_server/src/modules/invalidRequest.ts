@@ -46,9 +46,9 @@ export const invalidRequest = (req: Request, machineCoins: coins, availableFunds
     const centsValue = convertToCents(price, amount);
     const priceInCents = centsValue.priceInCents;
     const amountInCents = centsValue.amountInCents;
-    const changeNeeded = calculateTotalChange(priceInCents, amountInCents);
+    const changeNeededInCents = calculateTotalChange(priceInCents, amountInCents) * 100;
     // Checking if enough funds are available
-    if(changeNeeded > availableFunds){
+    if(changeNeededInCents > availableFunds){
         return "Not enough funds are available in machine to return proper change";
     }
 
