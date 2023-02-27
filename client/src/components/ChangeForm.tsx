@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-export const ChangeForm = () => {
+export const ChangeForm = (props: FormProps) => {
 
     let [price, setPrice] = useState('');
     let [amount, setAmount] = useState('');
