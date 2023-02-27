@@ -1,6 +1,26 @@
-import React from "react";
+import React, { useState } from "react";
 
 export const ChangeForm = () => {
+
+    let [price, setPrice] = useState('');
+    let [amount, setAmount] = useState('');
+
+    const handlePriceChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+        if(event.target.value.match(/^([0-9]{1,})?(\.)?([0-9]{1,2})?$/)){
+            setPrice(event.target.value);
+        }
+    }
+
+    const handleAmountChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+        if(event.target.value.match(/^([0-9]{1,})?(\.)?([0-9]{1,2})?$/)){
+            setAmount(event.target.value);
+        }
+    }
+
+    const getResult = (event: React.MouseEvent<HTMLElement>) => {
+        event.preventDefault();
+
+    }
 
     return (
         <div className="container">
@@ -14,8 +34,9 @@ export const ChangeForm = () => {
                                     Price
                                     <input 
                                         type="text"
-                                        pattern="[0-9]*"
-                                        placeholder="Enter Price" 
+                                        placeholder="Enter Price"
+                                        value={price}
+                                        onChange={handlePriceChange}
                                     />
                                 </label>
                             </div>
@@ -24,14 +45,15 @@ export const ChangeForm = () => {
                                     Amount
                                     <input 
                                         type="text"
-                                        pattern="[0-9]*"
-                                        placeholder="Enter amount paid" 
+                                        placeholder="Enter amount paid"
+                                        value={amount}
+                                        onChange={handleAmountChange}
                                     />
                                 </label>
                             </div>
                         </div>
                         <div className="row" style={{paddingTop: "10px"}}>
-                            <button type="submit" className="btn btn-success">Pay</button>
+                            <button type="submit" onClick={getResult} className="btn btn-success">Pay</button>
                         </div>
                     </form>
                 </div>
