@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { FormProps } from "../prop_types/formProps";
 
 export const ChangeForm = (props: FormProps) => {
 
