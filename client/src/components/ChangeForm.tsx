@@ -13,9 +13,9 @@ export const ChangeForm = () => {
                                 <label> 
                                     Price
                                     <input 
-                                            type="text"
-                                            pattern="[0-9]*"
-                                            placeholder="Enter Price" 
+                                        type="text"
+                                        pattern="[0-9]*"
+                                        placeholder="Enter Price" 
                                     />
                                 </label>
                             </div>
@@ -23,9 +23,9 @@ export const ChangeForm = () => {
                                 <label> 
                                     Amount
                                     <input 
-                                            type="text"
-                                            pattern="[0-9]*"
-                                            placeholder="Enter amount paid" 
+                                        type="text"
+                                        pattern="[0-9]*"
+                                        placeholder="Enter amount paid" 
                                     />
                                 </label>
                             </div>
