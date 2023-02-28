@@ -24,6 +24,7 @@ export const ChangeForm = (props: FormProps) => {
         const fetchedData = await getChangeResults(Number(amount), Number(price));
         if(fetchedData.status === "OK"){
             props.setChangeReturned(fetchedData.response.change_returned);
+            props.setFundsRemaining(fetchedData.response.funds_remaining);
             props.setPageInteraction(true);
             props.setErrorMessage('');
             props.setErrorStatus(false);

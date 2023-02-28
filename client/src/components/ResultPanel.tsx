@@ -10,7 +10,10 @@ export const ResultPanel = (props: resultPanelProps) => {
         <div style={{backgroundColor: color}} className="display-board">
             {props.errorStatus
             ? <ErrorResult setColor={setColor}/>
-            :<DisplayResult setColor={setColor} changeReturned={props.changeReturned}/>
+            :<DisplayResult setColor={setColor} 
+                changeReturned={props.changeReturned} 
+                fundsRemaining={props.fundsRemaining}
+            />
             }
         </div>
     );

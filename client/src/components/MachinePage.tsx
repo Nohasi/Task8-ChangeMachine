@@ -9,6 +9,7 @@ export const MachinePage = () => {
 
     // Output states
     let [changeReturned, setChangeReturned] = useState('');
+    let [fundsRemaining, setFundsRemaining] = useState('');
 
     // Page control / error handling states
     let [pageInteraction, setPageInteraction] = useState(false);
@@ -26,6 +27,7 @@ export const MachinePage = () => {
                             setPageInteraction={setPageInteraction}
                             setErrorStatus={setErrorStatus}
                             setErrorMessage={setErrorMessage}
+                            setFundsRemaining={setFundsRemaining}
                         />
                     </div>
                     <div className="col-md-4">
@@ -33,6 +35,7 @@ export const MachinePage = () => {
                         ? <ResultPanel
                             changeReturned={changeReturned}
                             errorStatus={errorStatus}
+                            fundsRemaining={fundsRemaining}
                         />
                         : <div/>
                         }

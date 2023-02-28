@@ -1,4 +1,5 @@
 export default interface resultPanelProps {
     changeReturned: string,
-    errorStatus: boolean
+    errorStatus: boolean,
+    fundsRemaining: string
 }

@@ -3,4 +3,5 @@ export default interface FormProps {
     setPageInteraction: React.Dispatch<React.SetStateAction<boolean>>
     setErrorStatus: React.Dispatch<React.SetStateAction<boolean>>
     setErrorMessage: React.Dispatch<React.SetStateAction<string>>
+    setFundsRemaining: React.Dispatch<React.SetStateAction<string>>
 }

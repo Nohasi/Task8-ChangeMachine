@@ -9,6 +9,9 @@ export const DisplayResult = (props: displayResultProps) => {
         <div className="result">
             {`$${props.changeReturned}`}
         </div>
+        <h4>
+            {`Funds Remaining: $${props.fundsRemaining}`}
+        </h4>
     </div>
     );
 }
