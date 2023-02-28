@@ -1,5 +1,6 @@
 import React, { useState } from "react";
-import { FormProps } from "../prop_types/formProps";
+import FormProps from "../prop_types/formProps";
+import { getChangeResults } from "../services/getChangeResults";
 
 export const ChangeForm = (props: FormProps) => {
 
@@ -18,16 +19,27 @@ export const ChangeForm = (props: FormProps) => {
         }
     }
 
-    const getResult = (event: React.MouseEvent<HTMLElement>) => {
+    const getResult = async (event: React.MouseEvent<HTMLElement>) => {
         event.preventDefault();
-
+        const fetchedData = await getChangeResults(Number(amount), Number(price));
+        if(fetchedData.status === "OK"){
+            props.setChangeReturned(fetchedData.response.change_returned);
+            props.setPageInteraction(true);
+            props.setErrorMessage('');
+            props.setErrorStatus(false);
+        }
+        else{
+            props.setPageInteraction(true);
+            props.setErrorStatus(true);
+            props.setErrorMessage(fetchedData.response.error);
+        }
     }
 
     return (
         <div className="container">
             <div className="row">
                 <div className="col-md-7 mrgnbtm">
-                    <h2>Select number of Dice, Flips, and Players</h2>
+                    <h2>Enter Price of Item & Amount Paid</h2>
                     <form>
                         <div className="row">
                             <div className="col">

@@ -3,6 +3,7 @@ import React from 'react';
 import { useState } from 'react';
 import { ChangeForm } from './ChangeForm';
 import { Header } from './Header';
+import { ResultPanel } from './ResultPanel';
 
 export const MachinePage = () => {
 
@@ -28,7 +29,13 @@ export const MachinePage = () => {
                         />
                     </div>
                     <div className="col-md-4">
-                        {/* TODO: RESULTS PANEL */}
+                        {pageInteraction
+                        ? <ResultPanel
+                            changeReturned={changeReturned}
+                            errorStatus={errorStatus}
+                        />
+                        : <div/>
+                        }
                     </div>
                 </div>
             </div>
