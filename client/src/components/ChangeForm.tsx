@@ -28,6 +28,7 @@ export const ChangeForm = (props: FormProps) => {
             props.setPageInteraction(true);
             props.setErrorMessage('');
             props.setErrorStatus(false);
+            props.setCoinsDispensed(fetchedData.response.coins_dispensed);
         }
         else{
             props.setPageInteraction(true);

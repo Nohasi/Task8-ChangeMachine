@@ -1,9 +1,6 @@
 import React from "react";
-
-interface detailsProps {
-    errorStatus: boolean,
-    errorMessage: string
-}
+import coins from "../prop_types/coins";
+import detailsProps from "../prop_types/detailsProps";
 
 export const DetailsPanel = (props: detailsProps) => {
     return (
