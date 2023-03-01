@@ -6,5 +6,5 @@ export default interface FormProps {
     setErrorStatus: React.Dispatch<React.SetStateAction<boolean>>
     setErrorMessage: React.Dispatch<React.SetStateAction<string>>
     setFundsRemaining: React.Dispatch<React.SetStateAction<string>>
-    setCoinsDispensed: React.Dispatch<React.SetStateAction<{}>>
+    setCoinsDispensed: React.Dispatch<React.SetStateAction<coins>>
 }

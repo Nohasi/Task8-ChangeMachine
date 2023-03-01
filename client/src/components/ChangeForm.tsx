@@ -49,7 +49,7 @@ export const ChangeForm = (props: FormProps) => {
                                     Price
                                     <input 
                                         type="text"
-                                        placeholder="Enter Price"
+                                        placeholder="Enter Price in USD"
                                         value={price}
                                         onChange={handlePriceChange}
                                     />
@@ -60,7 +60,7 @@ export const ChangeForm = (props: FormProps) => {
                                     Amount
                                     <input 
                                         type="text"
-                                        placeholder="Enter amount paid"
+                                        placeholder="Enter amount paid in USD"
                                         value={amount}
                                         onChange={handleAmountChange}
                                     />
