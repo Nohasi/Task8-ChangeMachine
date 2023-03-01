@@ -73,7 +73,12 @@ export const ChangeForm = (props: FormProps) => {
                         </div>
                     </form>
                     <div className="row" style={{paddingTop:"10px", textAlign:"center"}}>
-                        <RefillCoins/>
+                        <RefillCoins 
+                            setFundsRemaining={props.setFundsRemaining}
+                            setErrorStatus={props.setErrorStatus}
+                            setErrorMessage={props.setErrorMessage}
+                            setPageInteraction={props.setPageInteraction}
+                        />
                     </div>
                 </div>
             </div>
