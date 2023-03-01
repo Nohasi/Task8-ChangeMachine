@@ -5,6 +5,7 @@ import coins from '../prop_types/coins';
 import { ChangeForm } from './ChangeForm';
 import { DetailsPanel } from './DetailsPanel';
 import { Header } from './Header';
+import { RefillCoins } from './RefillCoins';
 import { ResultPanel } from './ResultPanel';
 
 export const MachinePage = () => {

@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import FormProps from "../prop_types/formProps";
 import { getChangeResults } from "../services/getChangeResults";
+import { RefillCoins } from "./RefillCoins";
 
 export const ChangeForm = (props: FormProps) => {
 
@@ -71,6 +72,9 @@ export const ChangeForm = (props: FormProps) => {
                             <button type="submit" onClick={getResult} className="btn btn-success">Pay</button>
                         </div>
                     </form>
+                    <div className="row" style={{paddingTop:"10px", textAlign:"center"}}>
+                        <RefillCoins/>
+                    </div>
                 </div>
             </div>
         </div>
