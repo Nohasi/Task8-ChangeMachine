@@ -1,12 +1,6 @@
 import React from "react";
+import refillProps from "../prop_types/refillProps";
 import { requestRefill } from "../services/requestRefill";
-
-interface refillProps {
-    setFundsRemaining: React.Dispatch<React.SetStateAction<string>>,
-    setErrorStatus: React.Dispatch<React.SetStateAction<boolean>>,
-    setErrorMessage: React.Dispatch<React.SetStateAction<string>>,
-    setPageInteraction: React.Dispatch<React.SetStateAction<boolean>>
-}
 
 export const RefillCoins = (props: refillProps) => {
 

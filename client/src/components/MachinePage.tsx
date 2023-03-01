@@ -1,11 +1,9 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
 import React from 'react';
 import { useState } from 'react';
-import coins from '../prop_types/coins';
 import { ChangeForm } from './ChangeForm';
 import { DetailsPanel } from './DetailsPanel';
 import { Header } from './Header';
-import { RefillCoins } from './RefillCoins';
 import { ResultPanel } from './ResultPanel';
 
 export const MachinePage = () => {
@@ -60,7 +58,8 @@ export const MachinePage = () => {
                     ?<DetailsPanel 
                     errorStatus={errorStatus} 
                     errorMessage={errorMessage} 
-                    coinsDispensed={coinsDispensed} 
+                    coinsDispensed={coinsDispensed}
+                    changeReturned={changeReturned}
                     />
                     :<div/>
                 }

@@ -1,8 +1,9 @@
 import React from "react";
 import coins from "../prop_types/coins";
+import tableProps from "../prop_types/tableProps";
 import { buildTableBody } from "../services/buildTableBody";
 
-export const CoinsTable = ({coinsDispensed}: {coinsDispensed: coins}) => {
+export const CoinsTable = (props: tableProps) => {
     return (
         <div className="container">
         <table className="table table-bordered table-fixed table-sm same-col-widths" style={{textAlign:"center"}}>
@@ -15,7 +16,7 @@ export const CoinsTable = ({coinsDispensed}: {coinsDispensed: coins}) => {
             </thead>
             {/* Function to build table body using coinsDispensed */}
             <tbody>
-                {buildTableBody(coinsDispensed)}
+                {buildTableBody(props.coinsDispensed, props.changeReturned)}
             </tbody>
         </table>
     </div>
