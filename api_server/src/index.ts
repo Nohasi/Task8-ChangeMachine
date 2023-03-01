@@ -53,6 +53,23 @@ app.get('/change', (req: express.Request, res: express.Response) => {
     });
 });
 
+app.get('/refill', (req: express.Request, res: express.Response) => {
+    machineCoins = {
+        dollar1: 200,
+        cent50: 200,
+        cent20: 200,
+        cent10: 200,
+        cent5: 200,
+        cent2: 200,
+        cent1: 200
+    };
+    res.status(200);
+    res.send({
+        status: 200,
+        funds_remaining:calculateAvailableFunds(machineCoins)/100
+    });
+});
+
 const port: number = 4090;
 const server = app.listen(port, () => {
     console.log(`Server running on port ${port}`);
