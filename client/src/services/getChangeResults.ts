@@ -1,4 +1,4 @@
-export const getChangeResults = async (amount: number, price: number) => {
+export const getChangeResults = async (amount: string, price: string) => {
     try {
         const response = await fetch(`change?price=${price}&amount=${amount}`, {
             method: 'GET',

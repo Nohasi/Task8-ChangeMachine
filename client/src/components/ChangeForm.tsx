@@ -22,7 +22,7 @@ export const ChangeForm = (props: FormProps) => {
 
     const getResult = async (event: React.MouseEvent<HTMLElement>) => {
         event.preventDefault();
-        const fetchedData = await getChangeResults(Number(amount), Number(price));
+        const fetchedData = await getChangeResults(amount, price);
         if(fetchedData.status === "OK"){
             props.setChangeReturned(fetchedData.response.change_returned);
             props.setFundsRemaining(fetchedData.response.funds_remaining);
