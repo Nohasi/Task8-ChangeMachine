@@ -4,10 +4,10 @@ export const buildTableBody = (coinsDispensed: coins, changeReturned: string) =>
     if(Number(changeReturned) === 0){
         return (
             [
-            <tr key={0}>
-                <td>None</td>
-                <td>None</td>
-            </tr>
+                <tr key={0}>
+                    <td>None</td>
+                    <td>None</td>
+                </tr>
             ]
         );
     }
